@@ -1,27 +1,37 @@
-package com.dreamyprogrammer.lessonkotlin_1;
+package com.dreamyprogrammer.lessonkotlin_1
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+class MainActivity : AppCompatActivity() {
 
-public class MainActivity extends AppCompatActivity {
+//    private lateinit var button: Button
 
-    private Button button;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button_hello);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Hello World", Toast.LENGTH_SHORT).show();
+        findViewById<View>(R.id.button_java).setOnClickListener {
+            startActivity(Intent(this, JavaActivity::class.java))
+        }
+        findViewById<View>(R.id.button_kotlin).setOnClickListener {
+            startActivity(Intent(this, KotlinActivity::class.java))
+        }
 
-            }
-        });
+
+
+//        button = findViewById(R.id.button_hello)
+//        button.setOnClickListener(this)
+//        button?.setOnClickListener{
+//            Toast.makeText(this, button?.text, Toast.LENGTH_SHORT).show()
+//        }
     }
+//    override fun onClick(v: View) {
+//        Toast.makeText(this, button.text, Toast.LENGTH_SHORT).show()
+//        startActivity(Intent(this, JavaActivity::class.java))
+//    }
+
+
 }
